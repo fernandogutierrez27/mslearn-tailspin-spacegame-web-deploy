@@ -168,7 +168,7 @@ stages:
 
 - stage: 'Dev'
   displayName: 'Deploy to the dev environment'
-  dependsOn: DBVerificationApply
+  dependsOn: DBAVerificationApply
   jobs:
   - deployment: Deploy
     pool:

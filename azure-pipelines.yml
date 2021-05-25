@@ -145,6 +145,8 @@ stages:
                   $file = Get-Content "d:\a\1\s\GeneratedOutputFiles\$(databasename)_Script.sql"
                   $containsWord = $file | %{$_ -match "CREATE" -or $_ -match "ALTER" -or $_ -match "DROP"}
                   if ($containsWord -contains $true) {
+                    Write-Host "Schema Change Detected"
+
                     Install-Module VSTeam -Scope CurrentUser -Force
                     Set-VSTeamAccount –Account $(Acct) -PersonalAccessToken $(PAT)
                     $methodParameters = @{
@@ -164,7 +166,10 @@ stages:
                       Description = ""
                       Type = "Vsts"
                       Variables = $vars}
-                    Update-VSTeamVariableGroup @methodParameters} 
+                    Update-VSTeamVariableGroup @methodParameters
+                  } else {
+                    Write-Host "NO Schema Change Detected"
+                  } 
 
 - stage: DBAVerificationApply
   displayName: 'Apply database schema changes'

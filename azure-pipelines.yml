@@ -136,6 +136,10 @@ stages:
         command: 'build'
         arguments: '--no-restore --configuration $(buildConfiguration)'
         projects: '$(System.DefaultWorkingDirectory)/**/*UITests.csproj'
+
+    - pwsh: |
+        echo "##vso[task.prependpath]$env:CHROMEWEBDRIVER"
+      displayName: Adds ChromeWebDriver for Selenium to PATH 
     
     - task: DotNetCoreCLI@2
       displayName: Run unit(UI) tests - $(buildConfiguration)

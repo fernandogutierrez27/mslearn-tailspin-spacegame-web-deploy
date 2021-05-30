@@ -123,12 +123,20 @@ stages:
       displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
       inputs:
         version: $(dotnetSdkVersion)
+        - task: DotNetCoreCLI@2
+
+      displayName: 'Restore project dependencies'
+      inputs:
+        command: 'restore'
+        projects: '$(System.DefaultWorkingDirectory)/**/*UITests.csproj'
+
     - task: DotNetCoreCLI@2
-      displayName: Build the project - $(buildConfiguration)
+      displayName: 'Build the project - $(buildConfiguration)'
       inputs:
         command: 'build'
-        argumments: '--configuration $(buildConfiguration)'
+        arguments: '--no-restore --configuration $(buildConfiguration)'
         projects: '$(System.DefaultWorkingDirectory)/**/*UITests.csproj'
+    
     - task: DotNetCoreCLI@2
       displayName: Run unit(UI) tests - $(buildConfiguration)
       inputs:

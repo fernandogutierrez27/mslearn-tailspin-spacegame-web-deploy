@@ -10,12 +10,12 @@
     <PackageReference Include="nunit" Version="3.12.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.16.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
-    <PackageReference Include="Selenium.Support" Version="3.141.0" />
-    <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
-    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="83.0.4103.3900" />
-    <PackageReference Include="Selenium.WebDriver.GeckoDriver" Version="0.26.0.1" />
-    <PackageReference Include="Microsoft.Edge.SeleniumTools" Version="3.141.1" />
-    <PackageReference Include="WebDriverManager" Version="2.9.1" />
+    <PackageReference Include="Selenium.Support" />
+    <PackageReference Include="Selenium.WebDriver" />
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver" />
+    <PackageReference Include="Selenium.WebDriver.GeckoDriver" />
+    <PackageReference Include="Microsoft.Edge.SeleniumTools" />
+    <PackageReference Include="WebDriverManager" />
   </ItemGroup>
 
 </Project>

@@ -123,8 +123,8 @@ stages:
       displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
       inputs:
         version: $(dotnetSdkVersion)
-        - task: DotNetCoreCLI@2
-
+        
+    - task: DotNetCoreCLI@2
       displayName: 'Restore project dependencies'
       inputs:
         command: 'restore'
